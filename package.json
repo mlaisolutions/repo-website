@@ -1,0 +1,24 @@
+{
+  "name": "mlaiwebsite",
+  "version": "1.0.0",
+  "description": "website for mlai Solutions",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "geojson": "^0.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlaisolutions/repo-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlaisolutions/repo-website/issues"
+  },
+  "homepage": "https://github.com/mlaisolutions/repo-website#readme"
+}
