@@ -4,8 +4,6 @@
   "description": "website for mlai Solutions",
   "main": "index.js",
   "dependencies": {
-    "jquery": "^3.4.1",
-    "geojson": "^0.5.0"
   },
   "devDependencies": {},
   "scripts": {
