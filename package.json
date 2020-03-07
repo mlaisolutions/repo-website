@@ -4,6 +4,7 @@
   "description": "website for mlai Solutions",
   "main": "index.js",
   "dependencies": {
+    "leaflet.markercluster": "^1.4.1"
   },
   "devDependencies": {},
   "scripts": {
