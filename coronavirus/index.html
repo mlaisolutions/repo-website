@@ -1,42 +1,49 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zxx">
 
 <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Corona Virus Live Map</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<!-- Owl Theme Default CSS -->
+	<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+	<!-- Owl Carousel CSS -->
+	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- Boxicons CSS -->
+	<link rel="stylesheet" href="assets/css/boxicons.min.css">
+	<!-- Flaticon CSS -->
+	<link rel="stylesheet" href="assets/css/flaticon.css">
+	<!-- Meanmenu CSS -->
+	<link rel="stylesheet" href="assets/css/meanmenu.css">
+	<!-- Nice Select CSS -->
+	<link rel="stylesheet" href="assets/css/nice-select.css">
+	<!-- Odometer CSS-->
+	<link rel="stylesheet" href="assets/css/odometer.css">
+	<!-- Magnific CSS-->
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="assets/css/responsive.css">
 
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<title>Arduix - AI & IT Startup HTML Template</title>
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 		crossorigin="" />
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
 		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-		crossorigin=""></script>
-	<script>
-		/*	var geoText;
-	$(document).ready(function() {
-		$.ajax({
-		url: 'https://labcoronavirus.azurewebsites.net/api/HttpTrigger1?name=som',
-		dataType: 'json',
-		type: "GET",
-		success: function(result) {
-		  console.log(result);
-		  //geoText = GeoJSON.parse(result, {Point: ['Lat', 'Long']});
-		  geoText = result;
-		  console.log(JSON.stringify(geoText)); 
-		},
-		error: function(error) {
-		  console.log(error);
-		}
-	  });
-	});
-*/
-		//var data = [{"Province\/State":"Anhui","Country\/Region":"Mainland China","Lat":31.82571,"Long":117.2264,"2\/20\/20":987},{"Province\/State":"Beijing","Country\/Region":"Mainland China","Lat":40.18238,"Long":116.4142,"2\/20\/20":395},{"Province\/State":"Chongqing","Country\/Region":"Mainland China","Lat":30.05718,"Long":107.874,"2\/20\/20":567},{"Province\/State":"Fujian","Country\/Region":"Mainland China","Lat":26.07783,"Long":117.9895,"2\/20\/20":293},{"Province\/State":"Gansu","Country\/Region":"Mainland China","Lat":36.0611,"Long":103.8343,"2\/20\/20":91},{"Province\/State":"Guangdong","Country\/Region":"Mainland China","Lat":23.33841,"Long":113.422,"2\/20\/20":1332},{"Province\/State":"Guangxi","Country\/Region":"Mainland China","Lat":23.82908,"Long":108.7881,"2\/20\/20":245},{"Province\/State":"Guizhou","Country\/Region":"Mainland China","Lat":26.81536,"Long":106.8748,"2\/20\/20":146},{"Province\/State":"Hainan","Country\/Region":"Mainland China","Lat":19.19673,"Long":109.7455,"2\/20\/20":168},{"Province\/State":"Hebei","Country\/Region":"Mainland China","Lat":38.0428,"Long":114.5149,"2\/20\/20":307},{"Province\/State":"Heilongjiang","Country\/Region":"Mainland China","Lat":47.862,"Long":127.7622,"2\/20\/20":476},{"Province\/State":"Henan","Country\/Region":"Mainland China","Lat":33.88202,"Long":113.614,"2\/20\/20":1265},{"Province\/State":"Hubei","Country\/Region":"Mainland China","Lat":30.97564,"Long":112.2707,"2\/20\/20":62442},{"Province\/State":"Hunan","Country\/Region":"Mainland China","Lat":27.61041,"Long":111.7088,"2\/20\/20":1010},{"Province\/State":"Inner Mongolia","Country\/Region":"Mainland China","Lat":44.09448,"Long":113.9456,"2\/20\/20":75},{"Province\/State":"Jiangsu","Country\/Region":"Mainland China","Lat":32.97027,"Long":119.464,"2\/20\/20":631},{"Province\/State":"Jiangxi","Country\/Region":"Mainland China","Lat":27.61401,"Long":115.7221,"2\/20\/20":934},{"Province\/State":"Jilin","Country\/Region":"Mainland China","Lat":43.66657,"Long":126.1917,"2\/20\/20":91},{"Province\/State":"Liaoning","Country\/Region":"Mainland China","Lat":41.29284,"Long":122.6086,"2\/20\/20":121},{"Province\/State":"Ningxia","Country\/Region":"Mainland China","Lat":37.26923,"Long":106.1655,"2\/20\/20":71},{"Province\/State":"Qinghai","Country\/Region":"Mainland China","Lat":35.65945,"Long":96.02564,"2\/20\/20":18},{"Province\/State":"Shaanxi","Country\/Region":"Mainland China","Lat":35.19165,"Long":108.8701,"2\/20\/20":245},{"Province\/State":"Shandong","Country\/Region":"Mainland China","Lat":36.34377,"Long":118.1529,"2\/20\/20":546},{"Province\/State":"Shanghai","Country\/Region":"Mainland China","Lat":31.20327,"Long":121.4554,"2\/20\/20":334},{"Province\/State":"Shanxi","Country\/Region":"Mainland China","Lat":37.57769,"Long":112.2922,"2\/20\/20":132},{"Province\/State":"Sichuan","Country\/Region":"Mainland China","Lat":30.61714,"Long":102.7103,"2\/20\/20":520},{"Province\/State":"Tianjin","Country\/Region":"Mainland China","Lat":39.29362,"Long":117.333,"2\/20\/20":131},{"Province\/State":"Tibet","Country\/Region":"Mainland China","Lat":30.1534,"Long":88.7879,"2\/20\/20":1},{"Province\/State":"Xinjiang","Country\/Region":"Mainland China","Lat":41.11981,"Long":85.17822,"2\/20\/20":76},{"Province\/State":"Yunnan","Country\/Region":"Mainland China","Lat":24.97411,"Long":101.4868,"2\/20\/20":174},{"Province\/State":"Zhejiang","Country\/Region":"Mainland China","Lat":29.18251,"Long":120.0985,"2\/20\/20":1175},{"Province\/State":"Taiwan","Country\/Region":"Taiwan","Lat":23.6978,"Long":120.9605,"2\/20\/20":24},{"Province\/State":"Seattle, WA","Country\/Region":"US","Lat":47.7511,"Long":-120.74,"2\/20\/20":1},{"Province\/State":"Chicago, IL","Country\/Region":"US","Lat":40.6331,"Long":-89.3985,"2\/20\/20":2},{"Province\/State":"Tempe, AZ","Country\/Region":"US","Lat":34.0489,"Long":-111.094,"2\/20\/20":1},{"Province\/State":"Macau","Country\/Region":"Macau","Lat":22.1987,"Long":113.5439,"2\/20\/20":10},{"Province\/State":"Hong Kong","Country\/Region":"Hong Kong","Lat":22.3193,"Long":114.1694,"2\/20\/20":68},{"Province\/State":"Toronto, ON","Country\/Region":"Canada","Lat":43.6532,"Long":-79.3832,"2\/20\/20":2},{"Province\/State":"British Columbia","Country\/Region":"Canada","Lat":49.2827,"Long":-123.121,"2\/20\/20":5},{"Province\/State":"Orange, CA","Country\/Region":"US","Lat":33.7879,"Long":-117.8531,"2\/20\/20":1},{"Province\/State":"Los Angeles, CA","Country\/Region":"US","Lat":34.0522,"Long":-118.2437,"2\/20\/20":1},{"Province\/State":"New South Wales","Country\/Region":"Australia","Lat":-33.8688,"Long":151.2093,"2\/20\/20":4},{"Province\/State":"Victoria","Country\/Region":"Australia","Lat":-37.8136,"Long":144.9631,"2\/20\/20":4},{"Province\/State":"Queensland","Country\/Region":"Australia","Lat":-27.4698,"Long":153.0251,"2\/20\/20":5},{"Province\/State":"London, ON","Country\/Region":"Canada","Lat":42.9849,"Long":-81.2453,"2\/20\/20":1},{"Province\/State":"Santa Clara, CA","Country\/Region":"US","Lat":37.3541,"Long":-121.9552,"2\/20\/20":2},{"Province\/State":"South Australia","Country\/Region":"Australia","Lat":-34.9285,"Long":138.6007,"2\/20\/20":2},{"Province\/State":"Boston, MA","Country\/Region":"US","Lat":42.3601,"Long":-71.0589,"2\/20\/20":1},{"Province\/State":"San Benito, CA","Country\/Region":"US","Lat":36.5761,"Long":-120.9876,"2\/20\/20":2},{"Province\/State":"Madison, WI","Country\/Region":"US","Lat":43.0731,"Long":-89.4012,"2\/20\/20":1},{"Province\/State":"Diamond Princess cruise ship","Country\/Region":"Others","Lat":35.4437,"Long":139.638,"2\/20\/20":634},{"Province\/State":"San Diego County, CA","Country\/Region":"US","Lat":32.7157,"Long":-117.1611,"2\/20\/20":2},{"Province\/State":"San Antonio, TX","Country\/Region":"US","Lat":29.4241,"Long":-98.4936,"2\/20\/20":1}]
-		//geoText2 = GeoJSON.parse(data, {Point: ['Lat', 'Long']});
-		//console.log(geoText2);
+		crossorigin="">
 	</script>
+	<!-- TITLE -->
+
 	<script>
 		var myStyle = {
 			"color": "red",
@@ -63,62 +70,381 @@
 </head>
 
 <body>
-	<h3>Live update map of Corona Virus provided by MLAI Solutions</h3>
-	<div id="mapid" style="width: 2400px; height: 1250px;"></div>
-	<script>
-		//var mymap = L.map('mapid').setView([0, 0], 3.2);
+	<!-- Start Preloader Area -->
+	<div class="preloader">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!-- End Preloader Area -->
+
+	<!-- Start Arduix Navbar Area -->
+	<div id="header" class="arduix-nav-style">
+		<div class="navbar-area">
+			<!-- Menu For Mobile Device -->
+			<div class="mobile-nav">
+				<a href="index.html" class="logo">
+					<img src="assets/img/white-logo.png" alt="Logo">
+				</a>
+			</div>
+			<!-- Menu For Desktop Device -->
+			<div class="main-nav">
+				<nav class="navbar navbar-expand-md navbar-light">
+					<div class="container">
+						<a class="navbar-brand" href="index.html">
+							<img src="assets/img/white-logo.png" alt="Logo">
+						</a>
+						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+							<ul class="navbar-nav m-auto">
+								<li class="nav-item">
+									<a href="index.html" class="nav-link">
+										Home
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="about.html" class="nav-link">
+										About
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="nav-link dropdown-toggle">
+										Company
+									</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+											<a href="team.html" class="nav-link">Team</a>
+										</li>
+										<li class="nav-item">
+											<a href="faq.html" class="nav-link">FAQ</a>
+										</li>
+										<li class="nav-item">
+											<a href="testimonial.html" class="nav-link">Testimonial</a>
+										</li>
+										<li class="nav-item">
+											<a href="terms-conditions.html" class="nav-link">Terms Conditions</a>
+										</li>
+										<li class="nav-item">
+											<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+										</li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="services.html" class="nav-link">
+										Services
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="contact.html" class="nav-link active">
+										Contact
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- End Arduix Navbar Area -->
+	<!-- Start Page Title Area -->
+	<div class="page-title-area">
+		<div class="container">
+			<div class="page-title-content">
+				<h2>Live Updating Coronavirus Dashboard</h2>
+			</div>
+		</div>
+	</div>
+	<!-- End Page Title Area -->
+
+	<!-- Start Contact Area -->
+	<section class="main-contact-area contact-info-area contact-info-three pt-100 pb-70">
+		<div class="container">
+			<div id="mapid" class = "leafletmap" style="width:110vh; height: 100vh; position: relative">
+			
+			</div>
+			<script>
+				//var mymap = L.map('mapid').setView([0, 0], 3.2);
 
 
-		var dark = L.tileLayer(
-			'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-				maxZoom: 18,
-				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-					'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-				id: 'mapbox/dark-v10',
-				tileSize: 512,
-				zoomOffset: -1
-			});
+				var dark = L.tileLayer(
+					'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+						maxZoom: 18,
+						attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+							'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+							'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+						id: 'mapbox/dark-v10',
+						tileSize: 512,
+						zoomOffset: -1
+					});
 
-		var sattelite = L.tileLayer(
-			'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-				maxZoom: 18,
-				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-					'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-				id: 'mapbox/satellite-streets-v11',
-				tileSize: 512,
-				zoomOffset: -1
-			});
+				var sattelite = L.tileLayer(
+					'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+						maxZoom: 18,
+						attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+							'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+							'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+						id: 'mapbox/satellite-streets-v11',
+						tileSize: 512,
+						zoomOffset: -1
+					});
 
-		var mymap = L.map('mapid', {
-			center: [0, 0],
-			zoom: 3.2,
-			layers: [dark]
-		});
+				var mymap = L.map('mapid', {
+					center: [0, 0],
+					zoom: 3.2,
+					layers: [dark]
+				});
 
-		var baseMaps = {
-			Dark: dark,
-			Sattelite: sattelite
-		};
+				var baseMaps = {
+					Dark: dark,
+					Sattelite: sattelite
+				};
 
 
-		L.control.layers(baseMaps).addTo(mymap);
+				L.control.layers(baseMaps).addTo(mymap);
 
-		//L.geoJSON(geoText).addTo(mymap);
-		/*var myStyle = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
-	};
+			</script>
+		</div>
 
-	L.geoJSON(geoText, {
-    	style: myStyle
-	}).addTo(mymap);
-	*/
+	</section>
+
+	<!-- Start Footer Top Area -->
+	<footer class="footer-top-area pt-100 pb-70">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="single-widget">
+						<a href="index.html">
+							<img src="assets/img/white-logo.png" alt="Image">
+						</a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat molestiae corporis, magni
+							maxime perferendis ducimus totam officiis sit exercitationem sed odio debitis minus cumque
+							dolores dicta. Vitae.</p>
+						<ul class="social-icon">
+							<li>
+								<a href="#">
+									<i class="bx bxl-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="bx bxl-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="bx bxl-pinterest-alt"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="bx bxl-linkedin"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="bx bxl-youtube"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-widget">
+						<h3>Services</h3>
+						<ul>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Big Data
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									UI/UX Design
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Desktop Application
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Mobile Application
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Product Engineering
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Machine Learning
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-widget">
+						<h3>Important Links</h3>
+						<ul>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Search Engine
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Online Support
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Development
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Pay Per Click
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Support
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="right-icon bx bx-chevrons-right"></i>
+									Application
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-widget">
+						<h3>Information</h3>
+						<ul class="information">
+							<li class="address">
+								<i class="flaticon-call"></i>
+								<span>Phone</span>
+								<a href="tel:+882-569-756">
+									+882-569-756
+								</a>
+							</li>
+							<li class="address">
+								<i class="flaticon-envelope"></i>
+								<span>Email</span>
+								<a href="mailto:hello@arduix.com">
+									hello@arduix.com
+								</a>
+							</li>
+							<li class="address">
+								<i class="flaticon-maps-and-flags"></i>
+								<span>Address</span>
+								123, Western Road, Melbourne Australia
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-shape">
+			<img src="assets/img/shape/footer-shape-one.png" alt="Image">
+			<img src="assets/img/shape/footer-shape-two.png" alt="Image">
+		</div>
+	</footer>
+	<!-- End Footer Top Area -->
+
+	<!-- Start Footer Bottom Area -->
+	<footer class="footer-bottom-area">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-4">
+					<div class="copy-right">
+						<p>Copyright <i class="bx bx-copyright"></i> 2020 <a href="index.html">Arduix</a>. All Rights
+							Reserved</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="privacy">
+						<ul>
+							<li>
+								<a href="terms-conditions.html">Terms & Conditions</a>
+							</li>
+							<li>
+								<a href="privacy-policy.html">Privacy Policy</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="designed">
+						<p>Designed By <i class='bx bx-heart'></i> <a href="https://envytheme.com/"
+								target="_blank">EnvyTheme</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Bottom Area -->
+
+	<!-- Start Go Top Area -->
+	<div class="go-top">
+		<i class="bx bx-chevrons-up"></i>
+		<i class="bx bx-chevrons-up bx-fade-up"></i>
+	</div>
+	<!-- End Go Top Area -->
+
+
+	<!-- Jquery Slim JS -->
+	<script src="assets/js/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="assets/js/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- Meanmenu JS -->
+	<script src="assets/js/jquery.meanmenu.js"></script>
+	<!-- Wow JS -->
+	<script src="assets/js/wow.min.js"></script>
+	<!-- Owl Carousel JS -->
+	<script src="assets/js/owl.carousel.js"></script>
+	<!-- Nice Select JS -->
+	<script src="assets/js/jquery.nice-select.min.js"></script>
+	<!-- Appear JS -->
+	<script src="assets/js/jquery.appear.js"></script>
+	<!-- Odometer JS -->
+	<script src="assets/js/odometer.min.js"></script>
+	<!-- Magnific JS -->
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- Ajaxchimp JS -->
+	<script src="assets/js/jquery.ajaxchimp.min.js"></script>
+	<!-- Form Validator JS -->
+	<script src="assets/js/form-validator.min.js"></script>
+	<!-- Contact JS -->
+	<script src="assets/js/contact-form-script.js"></script>
+	<!-- Map API JS FILES -->
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApghCIIx9MpQhA768sKXxvR_Okg0SF2k4&callback=initMap">
 	</script>
-
-
+	<!-- Map JS FILE -->
+	<script src="assets/js/map.js"></script>
+	<!-- Custom JS -->
+	<script src="assets/js/custom.js"></script>
 
 </body>
 
